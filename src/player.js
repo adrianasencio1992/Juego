@@ -24,7 +24,7 @@ class Player {
         this.moving = false
             // this.direction = 0;
             //
-        this.speed = 5;
+        this.speed = 8;
     }
 
     draw(framesCounter) {

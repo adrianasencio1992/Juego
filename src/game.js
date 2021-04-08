@@ -30,7 +30,7 @@ class Game {
         this.canvas.setAttribute("width", this.containerWidth);
         this.canvas.setAttribute("height", this.containerHeight);
 
-        this.player = new Player(this.canvas, 15, './imagenes/sprite.png'); //Vidas jugador
+        this.player = new Player(this.canvas, 25, './imagenes/sprite.png'); //Vidas jugador
 
         this.startLoop();
     }
