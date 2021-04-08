@@ -163,6 +163,7 @@ class Game {
                 if (this.player.didCollide(enemy)) {
                     this.player.removeLife();
                     this.player.sizeLorgio();
+                    this.player.risa();
 
 
                     //mover el enemigo fuera de la pantalla

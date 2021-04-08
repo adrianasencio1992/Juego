@@ -108,6 +108,15 @@ class Player {
     }
 
 
+
+    risa() {
+        let audio = new Audio('risa.wav');
+        audio.currentTime = 0;
+        audio.volume = 0.6;
+        audio.play();
+    }
+
+
     sizeLorgio() {
         this.num++
             if (this.num < 3) {
