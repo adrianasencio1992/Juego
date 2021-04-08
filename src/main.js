@@ -139,8 +139,9 @@ let audio = new Audio('guerra.mp3');
 
 music = () => {
     audio.currentTime = 0;
-    audio.play();
     audio.volume = 0.1;
+    audio.play();
+
 }
 
 musicStop = () => {

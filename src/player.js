@@ -15,6 +15,7 @@ class Player {
         //gestionaremos la dirección de nuestro jugador con los numeros 1, 0, -1 (multiplicamos speed por direction)
         this.keys = [];
         this.move = false;
+        this.num = 0;
 
 
         // this.direction = 0;
@@ -44,7 +45,7 @@ class Player {
             this.x -= this.speed
 
         }
-        if (this.keys[40] && this.y < 255) { // valor abajo
+        if (this.keys[40] && this.y < 235) { // valor abajo
             this.y += this.speed;
 
         }
@@ -72,6 +73,15 @@ class Player {
         this.lives += 1;
     }
 
+
+    sizeLorgio() {
+        this.num++
+            if (this.num < 3) {
+                this.size += 10;
+
+            }
+    }
+
     draw() {
         //this.ctx.fillStyle = "#66D3FA";
         //fillRect(x, y, width, height)
@@ -93,9 +103,9 @@ class Player {
 
         //seleccionamos los 4 laterales del enemigo
         const enemyLeft = enemy.x;
-        const enemyRight = enemy.x + enemy.size;
+        const enemyRight = enemy.x + enemy.width;
         const enemyTop = enemy.y;
-        const enemyBottom = enemy.y + enemy.size;
+        const enemyBottom = enemy.y + enemy.height;
 
         //comprobamos si el enemigo ha entrado dentro del jugador por cualquiera de los 4 lados
         const crossLeft = enemyLeft <= playerRight && enemyLeft >= playerLeft;

@@ -9,6 +9,7 @@ class Game {
         this.score = 0;
         this.livesElement = undefined;
         this.scoreElement = undefined;
+        this.framesCounter = 0;
     }
 
     // Create `ctx`, a `player` and start the Canvas loop
@@ -47,46 +48,54 @@ class Game {
             //1. ACTUALIZAR los estados del jugador y los enemigos
             // -- 1.0 Nuestro jugador ya esta creado en la función start
             // -- 1.1 Crear enemigos en posiciones aleatorias con una frecuencia aleatoria
-            if (this.enemies.length < 10) {
-                if (Math.random() > 0.97) {
-                    if (num >= 0 && num <= 10) {
-                        const randomY2 = Math.floor((this.canvas.height + 20) * Math.random()); //En que punto salen
-                        const newEnemy2 = new Enemy2(this.canvas, randomY2, 8, '#ffffff', "muerte2"); //velocidad
-                        this.enemies.push(newEnemy2);
+            this.framesCounter++
 
-                    } else if (num >= 11 && num <= 30) {
-                        const randomY = Math.floor((this.canvas.height + 20) * Math.random()); //En que punto salen
-                        const newEnemy = new Enemy(this.canvas, randomY, 7, '#000000', "muerte"); //velocidad
-                        this.enemies.push(newEnemy);
-                        const randomY2 = Math.floor((this.canvas.height + 20) * Math.random()); //En que punto salen
-                        const newEnemy2 = new Enemy2(this.canvas, randomY2, 8, '#ffffff', "muerte2"); //velocidad
-                        this.enemies.push(newEnemy2);
+                if (this.enemies.length < 10) {
+                    if (Math.random() > 0.95) {
+                        if (num >= 0 && num <= 10) {
+                            const randomY2 = Math.floor((this.canvas.height - 20) * Math.random()); //En que punto salen
+                            const newEnemy2 = new Enemy2(this.canvas, randomY2, 8, '#ffffff', "muerte2", './imagenes/spritebala2.png'); //velocidad
+                            this.enemies.push(newEnemy2);
 
-                    } else if (num >= 31 && num <= 60) {
-                        const randomY = Math.floor((this.canvas.height + 20) * Math.random()); //En que punto salen
-                        const newEnemy = new Enemy(this.canvas, randomY, 10, '#000000', "muerte"); //velocidad
-                        this.enemies.push(newEnemy);
-                        const randomY2 = Math.floor((this.canvas.height + 20) * Math.random()); //En que punto salen
-                        const newEnemy2 = new Enemy2(this.canvas, randomY2, 12, '#ffffff', "muerte2"); //velocidad
-                        this.enemies.push(newEnemy2);
+                        } else if (num >= 11 && num <= 30) {
+                            const randomY = Math.floor((this.canvas.height - 20) * Math.random()); //En que punto salen
+                            const newEnemy = new Enemy(this.canvas, randomY, 7, '#000000', "muerte", './imagenes/spritebala.png'); //velocidad
+                            this.enemies.push(newEnemy);
+                            const randomY2 = Math.floor((this.canvas.height - 20) * Math.random()); //En que punto salen
+                            const newEnemy2 = new Enemy2(this.canvas, randomY2, 9, '#ffffff', "muerte2", './imagenes/spritebala2.png');
+                            this.enemies.push(newEnemy2);
 
-                    } else if (num >= 61) {
-                        const randomY = Math.floor((this.canvas.height + 20) * Math.random()); //En que punto salen
-                        const newEnemy = new Enemy(this.canvas, randomY, 14, '#000000', "muerte"); //velocidad
-                        this.enemies.push(newEnemy);
-                        const randomY2 = Math.floor((this.canvas.height + 20) * Math.random()); //En que punto salen
-                        const newEnemy2 = new Enemy2(this.canvas, randomY2, 16, '#ffffff', "muerte2"); //velocidad
-                        this.enemies.push(newEnemy2);
+                        } else if (num >= 31 && num <= 60) {
+                            const randomY = Math.floor((this.canvas.height - 20) * Math.random()); //En que punto salen
+                            const newEnemy = new Enemy(this.canvas, randomY, 10, '#000000', "muerte", './imagenes/spritebala.png');
+                            this.enemies.push(newEnemy);
+                            const randomY2 = Math.floor((this.canvas.height - 20) * Math.random()); //En que punto salen
+                            const newEnemy2 = new Enemy2(this.canvas, randomY2, 12, '#ffffff', "muerte2", './imagenes/spritebala2.png'); //velocidad
+                            this.enemies.push(newEnemy2);
+
+                        } else if (num >= 61) {
+                            const randomY = Math.floor((this.canvas.height - 20) * Math.random()); //En que punto salen
+                            const newEnemy = new Enemy(this.canvas, randomY, 12, '#000000', "muerte", './imagenes/spritebala.png'); //velocidad
+                            this.enemies.push(newEnemy);
+                            const randomY2 = Math.floor((this.canvas.height - 20) * Math.random()); //En que punto salen
+                            const newEnemy2 = new Enemy2(this.canvas, randomY2, 14, '#ffffff', "muerte2", './imagenes/spritebala2.png');; //velocidad
+                            this.enemies.push(newEnemy2);
+
+                        }
+
                     }
+                    if (Math.random() > 0.99) {
+                        const randomY3 = Math.floor((this.canvas.height, 255) * Math.random()); //En que punto salen
+                        const newEnemy3 = new Enemy3(this.canvas, randomY3, 4, '#ffffff', "vida", './imagenes/spritebotiquin.png'); //velocidad
 
+                        this.enemies.push(newEnemy3);
+                    }
+                    if (Math.random() > 0.997) {
+                        const randomY4 = Math.floor((this.canvas.height - 140) * Math.random()); //En que punto salen
+                        const newEnemy4 = new Enemy4(this.canvas, randomY4, 3, '#ffffff', "muerte3", './imagenes/lorgio2.png');; //velocidad
+                        this.enemies.push(newEnemy4);
+                    }
                 }
-                if (Math.random() > 0.99) {
-                    const randomY3 = Math.floor((this.canvas.height, 255) * Math.random()); //En que punto salen
-                    const newEnemy3 = new Enemy3(this.canvas, randomY3, 4, '#ffffff', "vida"); //velocidad
-
-                    this.enemies.push(newEnemy3);
-                }
-            }
 
             this.player.confirmeMove();
             this.player.movePlayer();
@@ -106,7 +115,7 @@ class Game {
             //3. DIBUJAR DE NUEVO EL CANVAS CON LAS POSICIONES ACTUALIZADAS EN EL PASO 1
             this.player.draw();
             this.enemies.forEach((enemy) => {
-                enemy.draw();
+                enemy.draw(this.framesCounter);
             });
             //4. ROMPER EL LOOP EN CASO DE GAME OVER (LIVES <= 0)
             if (!this.gameIsOver) {
@@ -125,7 +134,7 @@ class Game {
                 if (this.player.didCollide(enemy)) {
                     this.player.removeLife();
 
-                    console.log("lives", this.player.lives);
+
                     //mover el enemigo fuera de la pantalla
                     enemy.x = 0 - enemy.size;
 
@@ -139,7 +148,7 @@ class Game {
                 if (this.player.didCollide(enemy)) {
                     this.player.removeLife();
 
-                    console.log("lives", this.player.lives);
+
                     //mover el enemigo fuera de la pantalla
                     enemy.x = 0 - enemy.size;
 
@@ -149,11 +158,28 @@ class Game {
 
                 }
             }
+            if (enemy.type === "muerte3") {
+                if (this.player.didCollide(enemy)) {
+                    this.player.removeLife();
+                    this.player.sizeLorgio();
+
+
+                    //mover el enemigo fuera de la pantalla
+                    enemy.x = 0 - enemy.size;
+
+                    if (this.player.lives === 0) {
+                        this.gameOver();
+                    }
+
+                }
+            }
+
+
             if (enemy.type === "vida") {
                 if (this.player.didCollide(enemy)) {
                     this.player.augmentLife();
 
-                    console.log("lives", this.player.lives);
+
                     //mover el enemigo fuera de la pantalla
                     enemy.x = 0 - enemy.size;
 
