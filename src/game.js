@@ -10,6 +10,7 @@ class Game {
         this.livesElement = undefined;
         this.scoreElement = undefined;
         this.framesCounter = 0;
+
     }
 
     // Create `ctx`, a `player` and start the Canvas loop
@@ -29,7 +30,7 @@ class Game {
         this.canvas.setAttribute("width", this.containerWidth);
         this.canvas.setAttribute("height", this.containerHeight);
 
-        this.player = new Player(this.canvas, 15); //Vidas jugador
+        this.player = new Player(this.canvas, 15, './imagenes/sprite.png'); //Vidas jugador
 
         this.startLoop();
     }
@@ -113,7 +114,7 @@ class Game {
             //2. LIMPIAR CANVAS
             this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
             //3. DIBUJAR DE NUEVO EL CANVAS CON LAS POSICIONES ACTUALIZADAS EN EL PASO 1
-            this.player.draw();
+            this.player.draw(this.framesCounter);
             this.enemies.forEach((enemy) => {
                 enemy.draw(this.framesCounter);
             });

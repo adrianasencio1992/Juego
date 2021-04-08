@@ -1,5 +1,5 @@
 class Player {
-    constructor(canvas, lives) {
+    constructor(canvas, lives, playerImg) {
         this.canvas = canvas;
         this.ctx = this.canvas.getContext("2d");
 
@@ -14,14 +14,44 @@ class Player {
 
         //gestionaremos la dirección de nuestro jugador con los numeros 1, 0, -1 (multiplicamos speed por direction)
         this.keys = [];
-        this.move = false;
         this.num = 0;
-
-
-        // this.direction = 0;
-        //
-        this.speed = 10;
+        this.image = new Image();
+        this.image.src = playerImg;
+        this.framex = 0;
+        this.framey = 0;
+        this.width = 45;
+        this.height = 65;
+        this.moving = false
+            // this.direction = 0;
+            //
+        this.speed = 5;
     }
+
+    draw(framesCounter) {
+        this.ctx.drawImage(
+            this.image, //imagen
+            this.image.width / 4 * this.framex, //multiplicacion matematica para que funcione
+            this.image.height / 4 * this.framey,
+            this.image.width / 4,
+            this.image.height / 4,
+            this.x,
+            this.y,
+            this.width,
+            this.height
+        );
+        this.animate(framesCounter);
+    }
+
+    animate(framesCounter) {
+        if (framesCounter % 6 === 0 && this.moving) {
+            console.log(this.framex);
+            this.framex++
+
+                if (this.framex > 3) this.framex = 0;
+        }
+    }
+
+
 
     confirmeMove() { // Confirmar el movimiento
         document.body.addEventListener('keydown', (e) => {
@@ -39,18 +69,22 @@ class Player {
     movePlayer() { // Movimiento
         if (this.keys[38] && this.y > 20) { // Valor arriba
             this.y -= this.speed;
+            this.framey = 3
 
         }
-        if (this.keys[37] && this.x > 10) { // Valor atras
+        if (this.keys[37] && this.x > 10) { // Valor izquierda
             this.x -= this.speed
+            this.framey = 1
 
         }
         if (this.keys[40] && this.y < 235) { // valor abajo
             this.y += this.speed;
+            this.framey = 0
 
         }
         if (this.keys[39] && this.x < 350) { // valor derecha
             this.x += this.speed;
+            this.framey = 2
 
         }
     }
@@ -77,22 +111,13 @@ class Player {
     sizeLorgio() {
         this.num++
             if (this.num < 3) {
-                this.size += 10;
+                this.width += 10;
+                this.height += 10;
 
             }
     }
 
-    draw() {
-        //this.ctx.fillStyle = "#66D3FA";
-        //fillRect(x, y, width, height)
-        let img = document.createElement('img');
-        img.src = 'imagenes/soldado.png';
-        this.ctx.drawImage(img, this.x, this.y, this.size, this.size);
 
-
-
-        //this.ctx.fillRect(this.x, this.y, this.size, this.size);
-    }
 
     didCollide(enemy) {
         //seleccionamos los 4 laterales del jugador
