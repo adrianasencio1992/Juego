@@ -83,7 +83,7 @@ function playVideo2() { // Video primera Intro
 }
 
 function playVideo3() { // Video para jugar!
-
+    musicClick();
     let video2 = document.querySelector('#video2');
     let video3 = document.querySelector('#video3');
     video3.volume = 0.1;
@@ -103,13 +103,13 @@ function playVideo4() { //Video derrota
 
 function returnVideo3() {
     let video5 = document.querySelector('#video3');
-
-
     document.querySelector('#video3').style.zIndex = '20';
+    musicClick();
 
 }
 
 function on() { // Encender consola
+    musicClick();
     let on = document.querySelector('#button');
     let pantalla = document.querySelector('#contenedor');
     button.id = "buttonGreen";
@@ -126,6 +126,13 @@ function off() { // Apagar consola
     let off = document.querySelector('#buttonGreen');
     buttonGreen.id = "button";
 
+}
+
+
+musicClick = () => {
+    let audio = new Audio('imagenes/sonido.wav');
+    audio.currentTime = 0;
+    audio.play();
 }
 
 let audio = new Audio('guerra.mp3');
