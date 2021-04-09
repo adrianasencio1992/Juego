@@ -91,10 +91,12 @@ class Game {
 
                         this.enemies.push(newEnemy3);
                     }
-                    if (Math.random() > 0.997) {
+
+                    if (Math.random() > 0.998) {
                         const randomY4 = Math.floor((this.canvas.height - 140) * Math.random()); //En que punto salen
                         const newEnemy4 = new Enemy4(this.canvas, randomY4, 3, '#ffffff', "muerte3", './imagenes/lorgio2.png');; //velocidad
                         this.enemies.push(newEnemy4);
+
                     }
                 }
 

@@ -150,8 +150,8 @@ class Enemy4 extends Enemy {
         this.image.src = enemyImg;
         this.framex = 0;
         this.framey = 0;
-        this.width = 145;
-        this.height = 110;
+        this.width = 115;
+        this.height = 90;
         this.frames = 10;
         this.framesIndex = 0;
     }
