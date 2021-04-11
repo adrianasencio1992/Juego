@@ -122,8 +122,8 @@ section {
 /* BOTONES */
 
 #button {
-    width: 44px;
-    height: 44px;
+    width: 3.4%;
+    height: 7.4%;
     position: absolute;
     top: 75.2%;
     left: 19.5%;
@@ -149,11 +149,11 @@ section {
     background-color: rgb(9, 255, 0);
     color: rgb(0, 0, 0);
     border: 2px solid whitesmoke;
-    width: 44px;
-    height: 44px;
+    width: 3.4%;
+    height: 7.4%;
     position: absolute;
-    top: 75.2%;
-    left: 19.5%;
+    top: 75.3%;
+    left: 19.6%;
     border-radius: 50%;
     box-sizing: border-box;
     font-size: 14px;
