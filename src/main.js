@@ -23,29 +23,26 @@ function createSplashScreen() { //Menú
        
         <section>
             <img id="consola" src="./imagenes/consola1.png" alt="">
-            <video id="video" onloadedmetadata="this.muted=false">
+            
+             <div id="contenedor">
+             <video id="video" onloadedmetadata="this.muted=false">
                 <source src="imagenes/nintendo.mp4">
             </video>
-             <div id="contenedor">
              <video id="video2" onloadedmetadata="this.muted=false" loop>
                 <source src="imagenes/guerra.mp4">
             </video>
-            </div>
-             <video id="video3" onloadedmetadata="this.muted=false">
+            <video id="video3" onloadedmetadata="this.muted=false">
                 <source src="imagenes/videojuego1.mp4">
             </video>
             <video id="video4" onloadedmetadata="this.muted=false">
                 <source src="imagenes/final.mp4">
             </video>
-            
+            </div>
         </section>
-        
         <div class="wrap">
         <button onclick="playVideo3()" id="button2">START</button>
         </div>
             <button onclick="playVideo(),playVideo2()" id="button" >ON</button>
-        <footer>
-        </footer>
         </main>
     `);
     //Una vez creado el elemento HTML con la función buildDom, cargamos ese HTML en la página principal
@@ -61,7 +58,7 @@ function createSplashScreen() { //Menú
 
 function playVideo() { //Video de nintendo
     let video = document.querySelector('#video');
-    document.querySelector('#video').style.zIndex = '5';
+    document.querySelector('#video').style.zIndex = '11';
     video.volume = 0.1;
     video.play();
     on();
@@ -76,7 +73,8 @@ function playVideo2() { // Video primera Intro
     video2.volume = 0.1;
 
     setTimeout(() => { // Funcion para que empiece el segundo video
-        document.querySelector('#contenedor').style.zIndex = '10';
+        document.querySelector('#video2').style.zIndex = '15';
+        document.querySelector('#video').style.visibility = 'hidden';
         video2.play();
     }, 3300);
 

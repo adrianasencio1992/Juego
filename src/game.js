@@ -30,7 +30,7 @@ class Game {
         this.canvas.setAttribute("width", this.containerWidth);
         this.canvas.setAttribute("height", this.containerHeight);
 
-        this.player = new Player(this.canvas, 25, './imagenes/sprite.png'); //Vidas jugador
+        this.player = new Player(this.canvas, 15, './imagenes/sprite.png'); //Vidas jugador
 
         this.startLoop();
     }
@@ -54,28 +54,28 @@ class Game {
                 if (this.enemies.length < 10) {
                     if (Math.random() > 0.95) {
                         if (num >= 0 && num <= 10) {
-                            const randomY2 = Math.floor((this.canvas.height - 20) * Math.random()); //En que punto salen
+                            const randomY2 = Math.floor((this.canvas.height - 120) * Math.random()); //En que punto salen
                             const newEnemy2 = new Enemy2(this.canvas, randomY2, 8, '#ffffff', "muerte2", './imagenes/spritebala2.png'); //velocidad
                             this.enemies.push(newEnemy2);
 
                         } else if (num >= 11 && num <= 30) {
-                            const randomY = Math.floor((this.canvas.height - 20) * Math.random()); //En que punto salen
+                            const randomY = Math.floor((this.canvas.height - 120) * Math.random()); //En que punto salen
                             const newEnemy = new Enemy(this.canvas, randomY, 7, '#000000', "muerte", './imagenes/spritebala.png'); //velocidad
                             this.enemies.push(newEnemy);
-                            const randomY2 = Math.floor((this.canvas.height - 20) * Math.random()); //En que punto salen
+                            const randomY2 = Math.floor((this.canvas.height - 120) * Math.random()); //En que punto salen
                             const newEnemy2 = new Enemy2(this.canvas, randomY2, 9, '#ffffff', "muerte2", './imagenes/spritebala2.png');
                             this.enemies.push(newEnemy2);
 
                         } else if (num >= 31 && num <= 60) {
-                            const randomY = Math.floor((this.canvas.height - 20) * Math.random()); //En que punto salen
+                            const randomY = Math.floor((this.canvas.height - 120) * Math.random()); //En que punto salen
                             const newEnemy = new Enemy(this.canvas, randomY, 10, '#000000', "muerte", './imagenes/spritebala.png');
                             this.enemies.push(newEnemy);
-                            const randomY2 = Math.floor((this.canvas.height - 20) * Math.random()); //En que punto salen
+                            const randomY2 = Math.floor((this.canvas.height - 120) * Math.random()); //En que punto salen
                             const newEnemy2 = new Enemy2(this.canvas, randomY2, 12, '#ffffff', "muerte2", './imagenes/spritebala2.png'); //velocidad
                             this.enemies.push(newEnemy2);
 
                         } else if (num >= 61) {
-                            const randomY = Math.floor((this.canvas.height - 20) * Math.random()); //En que punto salen
+                            const randomY = Math.floor((this.canvas.height - 120) * Math.random()); //En que punto salen
                             const newEnemy = new Enemy(this.canvas, randomY, 12, '#000000', "muerte", './imagenes/spritebala.png'); //velocidad
                             this.enemies.push(newEnemy);
                             const randomY2 = Math.floor((this.canvas.height - 20) * Math.random()); //En que punto salen
